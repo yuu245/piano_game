@@ -40,6 +40,9 @@ h1 {
     height: 170px;
     margin: auto;
 }
+.white:active {
+    background: white;
+}
 
 .white {
     width: 60px;
@@ -49,6 +52,9 @@ h1 {
     float: left;
     box-sizing: border-box;
     cursor: pointer;
+}
+.black:active {
+    background: black;
 }
 .black {
     position: absolute;
