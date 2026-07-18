@@ -76,11 +76,3 @@ h1 {
         transform-origin: top center;
     }
 }
-
-.white.active{
-    background: gold;
-}
-
-.black.active{
-    background: gray;
-}
