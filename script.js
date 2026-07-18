@@ -28,11 +28,11 @@ function countDown() {
     if (timeLeft <= 0) {
 
         problem.textContent = "🎮 ゲーム終了！";
-        sound.textContent = "🏆 点数：" + answer;
+sound.textContent = "🏆 正解数：" + answer + "問";
 
-        keys.forEach(key => key.disabled = true);
+keys.forEach(key => key.disabled = true);
 
-        return;
+return;
     }
 
     timeLeft--;
