@@ -1,0 +1,133 @@
+import tkinter as tk
+import random
+import time 
+
+root = tk.Tk()
+
+answer = 0
+
+root.geometry("844x390")
+root.title("software_kadai.py")
+
+problem_lbl = tk.Label(root, text="スタートボタンを押してください")
+problem_lbl.pack(pady=10)
+
+sound_lbl = tk.Label(root, text="")
+sound_lbl.pack(pady=5)
+
+timer_lbl = tk.Label(root, text="")
+timer_lbl.pack(pady=5)
+
+questions = [
+        "ド", "レ", "ミ", "ファ", "ソ", "ラ", "シ",
+        "♯ド", "♯レ", "♯ファ", "♯ソ", "♯ラ", 
+        "♭レ", "♭ミ", "♭ソ", "♭ラ", "♭シ"
+    ]
+
+
+def countDown():
+    global time_left
+    global answer
+    timer_lbl["text"] = "残り時間：" + str(time_left) + "秒"
+
+    if time_left > 0:
+        time_left -= 1
+        root.after(1000, countDown)
+    else:
+        for key in keys:
+            key["state"] = "disabled"
+        problem_lbl["text"] = "🎮 ゲーム終了！"
+        sound_lbl["text"] = "お疲れ様でした"
+        timer_lbl["text"] = "🏆 点数：" + str(answer)
+        
+
+def startGame():
+    global time_left
+    global answer
+
+    time_left = 30
+    answer = 0
+
+    btn.place_forget()
+
+    for key in keys:
+        key["state"] = "normal"
+
+    nextquestion()
+    countDown()
+
+def nextquestion():
+        problem = random.choice(questions)
+        problem_lbl["text"] = problem + "を押してください"
+
+piano_frame = tk.Frame(root, width=300, height=160)
+piano_frame.pack()
+
+def clickBtn(sound):
+    global answer
+
+    if time_left <= 0:
+        return
+    if isinstance(sound, list):
+        sound_lbl["text"] = "その音は " + sound[0] + "（" + sound[1] + "）です"
+    else:
+        sound_lbl["text"] = "その音は " + sound + "です"
+
+    if problem_lbl["text"].replace("を押してください", "") in sound:
+        sound_lbl["text"] = "正解✨"
+        answer += 1
+
+        nextquestion()
+        root.after(500, lambda: sound_lbl.config(text=""))
+
+btn = tk.Button(root, text="スタート", width=10, height=5, command=startGame)
+btn.place(relx=0.5, rely=0.5, anchor="center")
+
+
+btn_do = tk.Button(piano_frame, state="disabled", command=lambda: clickBtn("ド"))
+btn_do.place(x=0, y=10, width=40, height=140)
+
+btn_re = tk.Button(piano_frame, state="disabled", command=lambda: clickBtn("レ"))
+btn_re.place(x=40, y=10, width=40, height=140)
+
+btn_mi = tk.Button(piano_frame, state="disabled", command=lambda: clickBtn("ミ"))
+btn_mi.place(x=80, y=10, width=40, height=140)
+
+btn_fa = tk.Button(piano_frame, state="disabled", command=lambda: clickBtn("ファ"))
+btn_fa.place(x=120, y=10, width=40, height=140)
+
+btn_so = tk.Button(piano_frame, state="disabled", command=lambda: clickBtn("ソ"))
+btn_so.place(x=160, y=10, width=40, height=140)
+
+btn_ra = tk.Button(piano_frame,  state="disabled", command=lambda: clickBtn("ラ"))
+btn_ra.place(x=200, y=10, width=40, height=140)
+
+btn_si = tk.Button(piano_frame, state="disabled", command=lambda: clickBtn("シ"))
+btn_si.place(x=240, y=10, width=40, height=140)
+
+
+do_sharp = tk.Button(piano_frame, state="disabled", command=lambda: clickBtn(["♯ド", "♭レ"]), **{"bg": "black", "fg": "white", "highlightbackground": "black", "highlightthickness": 10, "relief": "flat"}
+)
+do_sharp.place(x=26, y=10, width=26, height=85) 
+
+re_sharp = tk.Button(piano_frame, state="disabled", command=lambda: clickBtn(["♯レ", "♭ミ"]), **{"bg": "black", "fg": "white", "highlightbackground": "black", "highlightthickness": 10, "relief": "flat"}
+)
+re_sharp.place(x=66, y=10, width=26, height=85)
+
+fa_sharp = tk.Button(piano_frame, state="disabled", command=lambda: clickBtn(["♯ファ", "♭ソ"]),**{"bg": "black", "fg": "white", "highlightbackground": "black", "highlightthickness": 10, "relief": "flat"}
+)
+fa_sharp.place(x=146, y=10, width=26, height=85)
+
+so_sharp = tk.Button(piano_frame, state="disabled", command=lambda: clickBtn(["♯ソ", "♭ラ"]), **{"bg": "black", "fg": "white", "highlightbackground": "black", "highlightthickness": 10, "relief": "flat"}
+)
+so_sharp.place(x=186, y=10, width=26, height=85) 
+
+ra_sharp = tk.Button(piano_frame, state="disabled", command=lambda: clickBtn(["♯ラ", "♭シ"]),**{"bg": "black", "fg": "white", "highlightbackground": "black", "highlightthickness": 10, "relief": "flat"}
+)
+ra_sharp.place(x=226, y=10, width=26, height=85) 
+
+keys = [btn_do, btn_re, btn_mi, btn_fa, btn_so,
+btn_ra, btn_si, do_sharp, re_sharp, fa_sharp, so_sharp, ra_sharp
+]
+
+root.mainloop()
