@@ -81,12 +81,6 @@ keys.forEach(key=>{
 
         }
 
-        key.classList.add("active");
-
-        setTimeout(()=>{
-            key.classList.remove("active");
-        },150);
-
         if(notes.includes(currentQuestion)){
 
             answer++;
