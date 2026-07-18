@@ -1,9 +1,78 @@
-body{
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: sans-serif;
+    text-align: center;
+    background: #f2f2f2;
+    user-select: none;
+}
 
-text-align:center;
+h1 {
+    margin-bottom: 10px;
+}
 
-background:#f5f5f5;
+#problem {
+    font-size: 24px;
+    font-weight: bold;
+}
 
-font-family:sans-serif;
+#sound {
+    height: 30px;
+    font-size: 20px;
+    color: blue;
+}
 
+#timer {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+#start {
+    font-size: 20px;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+#piano {
+    position: relative;
+    width: 420px;
+    height: 170px;
+    margin: auto;
+}
+
+.white {
+    width: 60px;
+    height: 170px;
+    background: white;
+    border: 1px solid black;
+    float: left;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.white:active {
+    background: #ffe66d;
+}
+
+.black {
+    position: absolute;
+    width: 40px;
+    height: 100px;
+    background: black;
+    border: 1px solid #333;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.black:active {
+    background: #666;
+}
+
+/* スマホ横画面 */
+@media (max-width: 900px) {
+    body {
+        transform: scale(0.9);
+        transform-origin: top center;
+    }
 }
