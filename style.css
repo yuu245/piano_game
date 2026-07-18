@@ -50,11 +50,6 @@ h1 {
     box-sizing: border-box;
     cursor: pointer;
 }
-
-.white:active {
-    background: #ffe66d;
-}
-
 .black {
     position: absolute;
     width: 40px;
@@ -63,10 +58,6 @@ h1 {
     border: 1px solid #333;
     z-index: 2;
     cursor: pointer;
-}
-
-.black:active {
-    background: #666;
 }
 
 /* スマホ横画面 */
