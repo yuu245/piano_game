@@ -19,7 +19,7 @@ h1 {
 #sound {
     height: 30px;
     font-size: 20px;
-    color: blue;
+    color: black;
 }
 
 #timer {
@@ -75,4 +75,12 @@ h1 {
         transform: scale(0.9);
         transform-origin: top center;
     }
+}
+
+.white.active{
+    background: gold;
+}
+
+.black.active{
+    background: gray;
 }
