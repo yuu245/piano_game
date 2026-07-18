@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,20 +10,41 @@
 
 <body>
 
-    <h1>ピアノゲーム</h1>
+    <h1>🎹 ピアノゲーム</h1>
 
     <p id="problem">スタートボタンを押してください</p>
 
     <p id="sound"></p>
 
-    <p id="timer">残り時間：30秒</p>
+    <p id="timer"></p>
 
     <button id="start">スタート</button>
 
-    <div id="piano"></div>
+    <div id="piano">
+
+        <!-- 白鍵 -->
+        <button class="white" data-note="ド"></button>
+        <button class="white" data-note="レ"></button>
+        <button class="white" data-note="ミ"></button>
+        <button class="white" data-note="ファ"></button>
+        <button class="white" data-note="ソ"></button>
+        <button class="white" data-note="ラ"></button>
+        <button class="white" data-note="シ"></button>
+
+        <!-- 黒鍵 -->
+        <button class="black" style="left:38px" data-note="♯ド,♭レ"></button>
+
+        <button class="black" style="left:98px" data-note="♯レ,♭ミ"></button>
+
+        <button class="black" style="left:218px" data-note="♯ファ,♭ソ"></button>
+
+        <button class="black" style="left:278px" data-note="♯ソ,♭ラ"></button>
+
+        <button class="black" style="left:338px" data-note="♯ラ,♭シ"></button>
+
+    </div>
 
     <script src="script.js"></script>
 
 </body>
-
 </html>
